@@ -1,0 +1,278 @@
+PYTHON SYNTAX
+
+* Whitespace
+    - In Python, whitespace is used to structure code. Whitespace is important, so you have to be
+    careful with how you use it. (NOTE: Indents are very important in Python)
+ie.
+    def spam():
+    	eggs = 12
+    	return eggs
+
+    print spam()
+
+* # sign is for comments (NOTE: like // in javascript)
+    -> # sign will only comment out a single line
+* For multi-line comments, you can include the whole block in a set of triple quotation marks:
+ie.
+    """Sipping from your cup 'til it runneth over,
+    Holy Grail.
+    """
+
+* Exponentiation
+    - Why use python for Math?
+    -> Because you can combine math with other data types (e.g. booleans) and commands to create useful programs.
+    ie.
+        eight = 2 ** 3
+        (**)represents exponential
+
+NOTE:
+    * Variables, which store values for later use
+    * Data types, such as numbers and booleans
+    * Whitespace, which separates statements
+    * Comments,#, which make your code easier to read
+    * Arithmetic operations, including +, -, *, /, **, and %
+    * We have to use 15.0 instead of 15 to ensure our program keeps the decimal points when dividing.
+    * print("%.2f" % total)
+        -> prints to the console the value of total with exactly two numbers after the decimal
+
+String NOTE:
+    * code breaks because Python thinks the apostrophe in 'There's' ends the string.
+        -> to fix: 'There\'s a snake in my boot!' (add \ before the apostrophe)
+    * String methods let you perform specific tasks for strings:
+        - len() : shows the length of the string
+        - lower() : ie. "Ryan".lower(), which will return "ryan".
+        - upper() : ie. "Ryan".lower(), which will capitalize all the characters in the string!
+        - str(): The str() method turns non-strings into strings!
+    * Dot Notation:
+        - take a closer look at why you use len(string) and str(object), but dot notation
+            (such as "String".upper()) for the rest.
+        ie.
+            lion = "roar"
+            len(lion)
+            lion.upper()    ->this is a dot Notation
+                        NOTE: Methods that use dot notation only work with strings.
+                        -> On the other hand, len() and str() can work on other data types.
+    * String Concatenation:
+        ie. print "Life " + "of " + "Brian"
+            - The + operator between strings will 'add' them together, one after the other.
+        -  you need to combine a string with something that isn't a string. In order to do that,
+            you have to convert the non-string into a string.
+                ie. print "I have " + str(2) + " coconuts!"
+                    prints: I have 2 coconuts!
+    * String Formatting with %:
+        - When you want to print a variable with a string, the % operator after a string is used to combine
+         a string with variables
+                ie.
+                        name = "Mike"
+                        print "Hello %s" % (name)       -> %s is a place holder for the %(variable) to replace
+        - % operator will replace a %s in the string with the string variable that comes after it.
+
+DATE AND TIME NOTE:
+    * Times you want to keep track of when something happened... We can do so in Python using datetime
+        ie.
+            from datetime import datetime
+    * datetime.now() to retrieve the current date and time
+        ie.
+            current_year = now.year
+            current_month = now.month
+            current_day = now.day
+    * Hot Date:
+        ie.
+            print '%s/%s/%s' % (now.month, now.day, now.year) to get mm/dd/yyyy format
+    * Time:
+        ie.
+            print '%s:%s:%s' % (now.hour, now.minute, now.second) to get hh:mm:ss
+
+CONDITIONALS & CONTROL FLOW NOTE:
+
+    * Truthy and Falsy:
+        -> Boolean Operators
+            ------------------------
+            True and True is True
+            True and False is False
+            False and True is False
+            False and False is False
+
+            True or True is True
+            True or False is True
+            False or True is True
+            False or False is False
+
+            Not True is False
+            Not False is True
+    * boolean operator 'Not' returns True for false statements and False for true statements.
+    * This and That (or This, But Not That!):
+        -> Boolean operators aren't just evaluated from left to right.
+        -> there's an order of operations for boolean operators:
+            1. not is evaluated first;
+            2. and is evaluated next;
+            3. or is evaluated last.
+        -> () ensure your expressions are evaluated in the order you want
+    * IF statement:
+        -> if is a conditional statement that executes some specified code after checking if its expression is True.
+        ie.
+            if 8 < 9:
+                print "Eight is less than nine!"
+    * Setting Function:
+        -> in the event that some_function() returns True, then the indented block of code after it will be executed.
+        ie.
+            def using_control_once():
+                if 2 == 2:
+                    return "Success #1"
+    * elif is short for "else if."
+        ie.
+            if 8 > 9:
+                print "I don't get printed!"
+            elif 8 < 9:
+                print "I get printed!"
+            else:
+                print "I also don't get printed!"
+
+PYGLatin:
+    * In the example, raw_input() accepts a string, prints it, and then waits for the user to type something
+     and press Enter (or Return)
+        ie.
+            original = raw_input("Enter a word:")
+                print original
+    * .isalpha() => checks if the variable is non-empty string or not.
+        NOTE: If it has number in the string it returns False
+            -> This make sure the word the user enters contains only alphabetical characters
+
+FUNCTIONS NOTE:
+        ie.
+            def tax(bill):
+                """Adds 8% tax to a restaurant bill."""
+                bill *= 1.08
+                print "With tax: %f" % bill     # %f is a place holder for % bill to be inputed in
+                return bill
+    * Functions are defined:
+        - def keyword, the name of the function, and any parameters the function requires
+            ie.
+                def hello_world():
+                    """Prints 'Hello World!' to the console."""
+                    print "Hello World!"
+    * Call and Response:
+        ie.
+        def square(n):
+            """Returns the square of a number."""
+            squared = n ** 2
+            print "%d squared is %d." % (n, squared)        #place holder can used as %d
+            return squared
+        square(10)
+            # Call the square function on line 10! Make sure to
+            # include the number 10 between the parentheses.
+    * Functions Calling Functions:
+        ie.
+            def fun_one(n):
+                return n * 5
+
+            def fun_two(m):
+                return fun_one(m) + 7
+            #calls function two to do whatever functions one returns
+    * Importing a module:
+        - A module is a file that contains definitions—including variables and functions—that you can
+         use once it is imported.
+        - A module is a file that contains definitions—including variables and functions—that you can
+         use once it is imported. (sqrt() is one of those functions.)
+            ie.
+                import math
+                print math.sqrt(25) #prints the square root of 25 which is 5.0
+    * Function Imports:
+        - Lets say we only really needed the sqrt function, and it can be frustrating to have to keep typing math.sqrt().
+        - Possible to import only certain variables or functions from a given module.
+        ie.
+            from math import sqrt       #just imports sqrt function from math module.
+    * Universal Imports:
+        - if we still want all of the variables and functions in a module but don't want to have to constantly type math...
+        ie.
+            from math import *
+        - Universal imports may look great on the surface, but they're not a good idea for one very important reason:
+            -> they fill your program with a ton of variable and function names without the safety of those names still
+             being associated with the module(s) they came from
+            ie.
+            -> If you do from math import *, however, you have a problem: namely, two different functions with the exact
+                same name. If you create ur own sqrt function and there is math.sqrt function from math module.
+        - THUS:  it's best to stick with either import module and type module.name or just import specific variables and
+        functions from various modules as needed.
+            -> To see everything in one module:
+                    import math # Imports the math module
+                    everything = dir(math)           # Sets everything to a list of things from math
+                    print everything                 # Prints 'em all!
+    * Built in functions in Python (no Modules needed):
+        - max():  takes any number of arguments and returns the largest one (ie. print max(arg))
+        - min():  returns the smallest of a given series of arguments (ie. print min(arg))
+        - abs(): absolute value: number's distance from 0 on an imagined number line.
+                -> The abs() function always returns a positive value.
+        - type(): returns the type of the data it receives as an argument
+
+LIST AND DICTIONARIES NOTE:
+    * List Slicing: When you want to access a portion of a list...
+        ie.
+            letters = ['a', 'b', 'c', 'd', 'e']
+            slice = letters[1:3]
+            print slice      # prints out ['b', 'c']-> start counting indices from 0 and that we stopped before index 3.
+            print letters
+        ie.
+            my_list[:2]
+                # Grabs the first two items
+            my_list[3:]
+                # Grabs the fourth through last items
+    * When you need to search for an item in a list:
+        ie.
+            animals = ["ant", "bat", "cat"]
+            print animals.index("bat")      # print the first index that contains the string "bat", which will print 1.
+    * can also insert items into a listL
+        ie.
+            animals.insert(1, "dog")
+            print animals
+        ie.
+            animals = ["aardvark", "badger", "duck", "emu", "fennec fox"]
+            duck_index = animals.index("duck")# Use index() to find "duck"
+
+            animals.insert(duck_index,"cobra")  # find duck and insert cobra at duck's index
+    * .sort(): modifies the list in numerical sorting or alphabetical sorting
+
+    * Dictionaries: dictionary is similar to a list, but you access values by looking up a key instead of an index.
+        -> A key can be any string or number.
+        -> Dictionaries are mutable, we can add new key/value pairs to the dictionary after it is created like so:
+            ie.
+                dict_name[new_key] = new_value
+        -> setting an empty dictionary and adding key value pairs in it:
+            ie.
+                menu = {} # setting an Empty dictionary
+                menu['Chicken Alfredo'] = 14.50         # Adding new key-value pair
+        ->  Items can be removed from a dictionary with the del command:
+            ie.
+                del dict_name[key_name]
+
+    * remove something from a list:
+        ie.
+            beatles = ["john","paul","george","ringo","stuart"]
+            beatles.remove("stuart")            #.remove(item) removes the item
+            print beatles
+
+    * For Loop in Dictionary:
+        ie.
+                            # A simple dictionary
+            d = {"foo" : "bar"}
+
+            for key in d:
+            print d[key]     # prints "bar"
+    * Printing if Dictionaries have the same Key value:
+    ie.
+        once  = {'a': 1, 'b': 2}
+        twice = {'a': 2, 'b': 4}
+        for key in once:
+            print "Once: %s" % once[key]
+            print "Twice: %s" % twice[key]
+                    # we know that they have the same keys, we can loop through one dictionary and print
+                    values from both once and twice
+
+    ie.
+        cost = {
+            "apples": [3.5, 2.4, 2.3],
+            "bananas": [1.2, 1.8],
+        }
+
+        return 0.9 * average(cost["apples"]) + \     #\ character is a continuation character, following line is a continuation
+        0.1 * average(cost["bananas"])
